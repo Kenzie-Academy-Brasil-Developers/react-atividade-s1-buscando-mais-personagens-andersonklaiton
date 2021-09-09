@@ -12,12 +12,25 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.top {
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
+.btns{
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
 }
-.top a{
-  text-decoration: none;
+.btns button{
+  width: 40%;
+  height: 50px;
+  font-size: 30px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: no;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.btnNext{
+  background-color: rgb(151, 255, 125);
+  
+}
+.btnPrev{
+  background-color: rgb(255, 160, 160)
 }

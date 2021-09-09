@@ -5,25 +5,36 @@ import Characters from './components/Characters';
 function App() {
 
   const [characterList, setCharacterList]=useState([])
-  const [next, setNext]=useState("https://rickandmortyapi.com/api/character/")
+  const [actual, setActual]=useState("https://rickandmortyapi.com/api/character/?page=1")
+  const [next, setNext]=useState("")
+  const [previous, setPrevious]=useState("")
 
   useEffect(()=>{
-    if(next!==null){
-      fetch(`${next}`)
+      fetch(`${actual}`)
       .then((response)=> response.json())
       .then((response)=> {
-        setCharacterList([...characterList, ...response.results])
-        setNext(response.info.next)
+        setCharacterList(response.results)
+         setNext(response.info.next)
+         setPrevious(response.info.prev)
         })
       .catch((err)=> console.log(err))
-    }
-  },[next])
+  },[actual])
+  
+  const nextPage=()=>{
+    setActual(next)
+  }
+  const previousPage=()=>{
+      setActual(previous)
+  }
   return (
     <div className="App">
       <div className="App-header">
         <h1>Rick and Morty Personagens</h1>
         <Characters characterList={characterList}/>
-        <button className="top"><a href="#top">Top</a></button>
+        <div className="btns">
+          <button className="btnPrev" onClick={previousPage}>Anterior</button>
+          <button className="btnNext" onClick={nextPage}>Próxima</button>
+        </div>
       </div>
     </div>
   );
