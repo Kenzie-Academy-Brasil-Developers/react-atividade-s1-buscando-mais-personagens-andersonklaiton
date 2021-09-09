@@ -1,0 +1,35 @@
+#card{
+    height: 171px;
+    width: 115px;
+    padding: 10px;
+    border: 1px solid #282c34;
+    margin: 10px;
+    color: cadetblue;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.alive{
+    background-color: rgb(151, 255, 125);
+}
+.dead{
+    background-color: rgb(255, 160, 160);
+}
+.picture{
+    height: 130px;
+    width: 100%;
+    object-fit: cover;
+}
+.unknow{
+    background-color: aliceblue;
+}
+
+@media only screen and (min-width:800px){
+    #card{
+        height: 200px;
+        width: 15%;
+    }
+}
